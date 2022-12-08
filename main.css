@@ -124,15 +124,23 @@ section{
     padding-left: 0;
     font-size: 25px;
     display: flex;
+    flex-direction: column;
     width: 320px;
     justify-content: space-between;
     cursor: auto;
-    max-height: 35px;
+   
 }
 .missiontext{
     color: rgb(255, 140, 0);
     max-width: 256px;
-    
+}
+.missiontext2{
+    color: rgb(255, 140, 0);
+    max-width: 256px;
+}
+.textcontrol{
+    display: flex;
+    justify-content: space-between;
 }
 .missionbar{
     background-color: white;
@@ -168,6 +176,9 @@ section{
     font-size: 25px;
     border: none;
     background: transparent;
+ 
+}
+.controlbutton button i{
     cursor: pointer;
 }
 .controlbutton{
@@ -177,14 +188,14 @@ section{
 .controlbutton i{
     background-color: white;
 }
-#settingsicon{
+.settingsicon{
     color: #333;
     transition: 0.3s;
 }
-#settingsicon:hover{
+.settingsicon:hover{
     transform: rotate(90deg);
 }
-#cross{
+.cross{
     color: red;
 }
 .listtitle{
