@@ -128,6 +128,7 @@ section{
     width: 320px;
     justify-content: space-between;
     cursor: auto;
+    
 }
 .missionbar{
     background-color: white;
@@ -202,6 +203,7 @@ footer{
 }
 .footer{
     margin-bottom: 5px;
+    margin-left: 15px;
 }
 h3 span{
     color: yellowgreen;

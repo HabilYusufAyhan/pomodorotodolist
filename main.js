@@ -1,1 +1,1 @@
-// görev 24 satır
+// görev 27 satır
