@@ -120,7 +120,6 @@ section{
 .mission{
     color: rgb(255, 140, 0);
     background-color: white;
-    text-align: center;
     padding-top: 10px;
     padding-left: 0;
     font-size: 25px;
@@ -128,6 +127,11 @@ section{
     width: 320px;
     justify-content: space-between;
     cursor: auto;
+    max-height: 35px;
+}
+.missiontext{
+    color: rgb(255, 140, 0);
+    max-width: 256px;
     
 }
 .missionbar{
@@ -160,10 +164,15 @@ section{
   color: rgb(255, 0, 166);
   text-align: center;
 }
-
+.controlbutton button{
+    font-size: 25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
 .controlbutton{
     background-color: white;
-    cursor: pointer;
+    display: flex;
 }
 .controlbutton i{
     background-color: white;
