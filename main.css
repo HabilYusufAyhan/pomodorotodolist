@@ -75,12 +75,15 @@ section{
     font-size: 100px;
 }
 .list{
-    max-height: 500px;
+    max-height: 400px;
     width: 350px;
     background-color: white;
     border-radius: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
+    overflow-y: auto;
+   
+}
+.list::-webkit-scrollbar{
+    width: 0;
 }
 .start{
     display: flex;
@@ -88,6 +91,12 @@ section{
     align-items: center;
     justify-content: center;
     
+}
+.start h2{
+    margin: 0;
+}
+.start p{
+    margin: 0;
 }
 .startbutton{
     border-radius: 10px;
@@ -101,6 +110,7 @@ section{
     padding-bottom: 5px;
     transition: 0.3s;
     font-family: 'Poor Story', cursive;
+    height: 40px;
 }
 .startbutton:hover{
     color: #1DA1F2;
@@ -111,7 +121,7 @@ section{
     color: rgb(255, 140, 0);
     background-color: white;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 0;
     font-size: 25px;
     display: flex;
@@ -123,12 +133,33 @@ section{
     background-color: white;
     display: flex;
     align-items: flex-start;
-    margin-top: 20px;
+    margin-top: 10px;
     flex-direction: column;
     justify-content: center;
     padding-left: 15px;
-    overflow: auto;
+   
+   
 }
+.missiontime{
+    display: flex;
+    width: 320px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.missiontime span{
+    color: blue;
+    margin-bottom: 0;
+    font-size: 15px;
+    margin-top: 0;
+}
+.missiontime p{
+  margin: 0;
+  background-color: white;
+  font-size: 15px;
+  color: rgb(255, 0, 166);
+  text-align: center;
+}
+
 .controlbutton{
     background-color: white;
     cursor: pointer;
@@ -136,19 +167,29 @@ section{
 .controlbutton i{
     background-color: white;
 }
-#check{
-    color: greenyellow;
+#settingsicon{
+    color: #333;
+    transition: 0.3s;
+}
+#settingsicon:hover{
+    transform: rotate(90deg);
 }
 #cross{
     color: red;
 }
-.list h2{
+.listtitle{
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.listtitle h2{
     background-color: white;
     color: blue;
     text-align: center;
     margin-bottom: 0;
 }
-.list p{
+.totaltime{
     background-color: white;
     font-size: 15px;
     color: rgb(255, 0, 166);
