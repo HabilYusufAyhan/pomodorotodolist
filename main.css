@@ -229,3 +229,153 @@ h3 span{
     color: yellowgreen;
     cursor: pointer;
 }
+/*missionadd*/
+.newmission{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(51, 51, 51,0.8);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.3s;
+}
+.missiontimebarparentparent{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.missiontimebarparent{
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.missiontimebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    
+}
+.timecrossdiv{
+    width: 100%;
+    text-align: left;
+}
+.timecross{
+    color: red;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.missiontimetext p{
+    text-align: center;
+    color: blue;
+    margin: 5px;
+}
+.sure{
+    color: blue;
+    margin: 5px;
+}
+.missiontimetext p span{
+    color: rgb(255, 0, 166);
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.timebuttondiv{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+.plus button{
+    background-color: #000080;
+    border: none;
+    transition: 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.sour button{
+    background-color: #800000;
+    border: none;
+    transition: 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.sour button:hover{
+    background-color: rgb(191, 0, 0);
+}
+.plus button:hover{
+    background-color: blue;
+}
+.textbar h3{
+    margin: 5px;
+    color: blue;
+    text-align: center;
+}
+.textbar{
+    text-align: center;
+    margin-top: 10px;
+}
+.textbar input{
+    text-align: center;
+}
+.textbar input::-webkit-inner-spin-button{
+    display: none;
+}
+.missiontouradd input{
+    width: 40px;
+}
+.waitingbuttondiv{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.waitingbuttondiv button{
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+.waitingbuttondiv button:nth-child(1){
+   background-color: blue;
+}
+
+.waitingbuttondiv button:nth-child(2){
+    background-color: rgb(10, 199, 10);
+}
+.waitingbuttondiv button:nth-child(3){
+    background-color: rgb(255, 191, 0);
+}
+.waitingbuttondiv button:nth-child(4){
+    background-color: red;
+}
+.success{
+    width: 150px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #0000ff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.success:hover{
+    background-color: #2b2ba8;
+}
+.textbar input{
+    color: blue;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 140, 0);
+    transition: 0.3s;
+    outline: none;
+}
+.textbar input:focus {
+    border: 2px solid rgb(255, 0, 166);
+  }
+
+
+

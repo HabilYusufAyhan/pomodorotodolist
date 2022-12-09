@@ -1,12 +1,32 @@
 // görev 27 satır
-const time = document.querySelectorAll('.time');
-const missiontext = document.querySelectorAll(".missiontext");
 const cross = document.querySelectorAll(".cross");
-const mission = document.querySelectorAll(".mission");
-const missiontime = document.querySelectorAll(".missiontime");
-const controlbutton = document.querySelectorAll(".controlbutton");
-const startmission = document.querySelectorAll(".startmission");
 const finishmission = document.querySelector(".finishmission");
+const timebutton = document.querySelectorAll('.waitingbuttondiv .minfiveteen');
+
+timebutton[0].onclick = function(){
+  timebutton[0].style.transform = 'rotate(10deg)';
+  timebutton[1].style.transform = 'rotate(0deg)';
+  timebutton[2].style.transform = 'rotate(0deg)';
+  timebutton[3].style.transform = 'rotate(0deg)';
+}
+timebutton[1].onclick = function(){
+  timebutton[0].style.transform = 'rotate(0deg)';
+  timebutton[1].style.transform = 'rotate(10deg)';
+  timebutton[2].style.transform = 'rotate(0deg)';
+  timebutton[3].style.transform = 'rotate(0deg)';
+}
+timebutton[2].onclick = function(){
+  timebutton[0].style.transform = 'rotate(0deg)';
+  timebutton[1].style.transform = 'rotate(0deg)';
+  timebutton[2].style.transform = 'rotate(10deg)';
+  timebutton[3].style.transform = 'rotate(0deg)';
+}
+timebutton[3].onclick = function(){
+  timebutton[0].style.transform = 'rotate(0deg)';
+  timebutton[1].style.transform = 'rotate(0deg)';
+  timebutton[2].style.transform = 'rotate(0deg)';
+  timebutton[3].style.transform = 'rotate(10deg)';
+}
 cross.forEach(function (tick) {
   tick.onclick = function () {
     if (tick.classList.contains("fa-x")) {
