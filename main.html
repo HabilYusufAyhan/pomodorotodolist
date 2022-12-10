@@ -24,7 +24,7 @@
           <li class="menuli"><i class="fa-solid fa-trophy"></i></li>
           <li class="menuli">Profilim</li>
           <li class="menuli">Ayarlar</li>
-          <li class="menuli">Premmium Edinin</li>
+          <li class="menuli">Premium Edinin</li>
         </ul>
       </div>
     </nav>
@@ -34,66 +34,25 @@
         <p class="totaltime">Toplam Planlanan Zaman: 00.00.00</p>
 
         <div class="list">
-          <ul class="missionbar startmission">
-            <li class="mission">
-              <div class="textcontrol">
-                <span class="missiontext"
-                  >diferansiyel denklemler sadasdas dsadsaasd asdsadasd asd
-                  asdasaa aaaa aasda sdasda sgdasg hjaaaaaa aaaaaa aaaaaaa</span
-                >
-                <div class="controlbutton">
-                  <button><i class="settingsicon fa-solid fa-cog"></i></button>
-                  <button class="cross">
-                    <i class="cross fa-solid fa-x"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="missiontime">
-                <p>
-                  Süre: <span class="time">00.00.01</span
-                  ><span class="tour">/2 tur</span>
-                </p>
-                <p>Mola Süresi: <span class="breakingtime">10dk</span></p>
-              </div>
-            </li>
-            <li class="mission">
-              <div class="textcontrol">
-                <span class="missiontext">diferansiyel</span>
-                <div class="controlbutton">
-                  <button>
-                    <i class="settingsicon fa-solid fa-cog"></i>
-                  </button>
-                  <button class="cross">
-                    <i class="cross fa-solid fa-x"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="missiontime">
-                <p>
-                  Süre: <span class="time">00.00.00</span
-                  ><span class="tour">/3 tur</span>
-                </p>
-                <p>Mola Süresi: <span class="breakingtime">15dk</span></p>
-              </div>
-            </li>
-          </ul>
+          <ul class="missionbar startmission"></ul>
         </div>
       </div>
 
       <div class="start">
         <h2>Seçilen görev</h2>
-        <p>diferansiyel</p>
+        <p class="choicemission">Seçili Görev Yok</p>
+        <p class="choicetour"></p>
         <div class="cronometer">
-          <li class="timer">00</li>
-          <li class="timer">.</li>
-          <li class="timer">00</li>
-          <li class="timer">.</li>
-          <li class="timer">00</li>
+          <li class="choicehour timer">00</li>
+          <li>.</li>
+          <li class="choicemin timer">00</li>
+          <li>.</li>
+          <li class="choicesec timer">00</li>
         </div>
         <div>
-          <button class="startbutton">BASLAT</button>
+          <button class="startbutton startbut">BASLAT</button>
           <button id="missionadd" class="startbutton">GOREV EKLE</button>
-          <button class="startbutton">GOREV SEC</button>
+          <button class="startbutton choicebutton">GOREV SEC</button>
         </div>
       </div>
       <div class="listtitle">
@@ -105,7 +64,7 @@
         </div>
       </div>
     </section>
-    <div class="newmission">
+    <div onclick="change()" class="newmission">
       <div class="missiontimebarparentparent">
         <div class="missiontimebarparent">
           <div class="timecrossdiv">
@@ -114,7 +73,11 @@
           <div class="missiontimebar">
             <div class="missiontimetext">
               <h3 class="sure">Ne Kadar Çalışacaksınız?</h3>
-              <p><span>00</span>.<span>00</span>.<span>00</span></p>
+              <p>
+                <span id="hour">00</span>.<span id="min">00</span>.<span
+                  >00</span
+                >
+              </p>
             </div>
             <div class="timebuttondiv plus">
               <button class="minfiveteen">+10 Min</button>
@@ -134,20 +97,25 @@
               <h3 class="sure">Ne Kadar Mola Alacaksınız?</h3>
             </div>
             <div class="waitingbuttondiv">
-              <button class="minfiveteen">10 Min</button>
-              <button class="minfiveteen">15 Min</button>
-              <button class="minfiveteen">30 Min</button>
-              <button class="minfiveteen">60 Min</button>
+              <button class="minfiveteen break">10 Min</button>
+              <button class="minfiveteen break">15 Min</button>
+              <button class="minfiveteen break">30 Min</button>
+              <button class="minfiveteen break">60 Min</button>
             </div>
-          </div>
-          <div class="missiontextadd textbar">
-            <h3>Gorevinizi Yaziniz:</h3>
-            <input class="missiontextinput" type="text" />
           </div>
           <div class="missiontouradd textbar">
             <h3>Tur Sayısını Yazınız:</h3>
-            <input type="number" />
+            <input
+              onkeypress="change()"
+              class="missionnumberinput"
+              type="number"
+            />
           </div>
+          <div class="missiontextadd textbar">
+            <h3>Gorevinizi Yaziniz:</h3>
+            <input onkeypress="change()" class="missiontextinput" type="text" />
+          </div>
+
           <button class="success">Gorev Ekle</button>
         </div>
       </div>
@@ -163,9 +131,24 @@
       });
       $("#missionclose").click(function () {
         $(".newmission").css({ opacity: "0", "z-index": "-1" });
-        $(".minfiveteen").css({ "transform":"rotate(0deg)" });
+        $(".minfiveteen").css({ transform: "rotate(0deg)" });
         $(".missiontextinput").val("");
+        $(".missionnumberinput").val("");
       });
+
+      $(".list").mouseenter(function () {
+          don();
+      });
+
+      function don() {
+        $(".check").click(function () {
+          //  $(this).children("h2").css({ top: "5px",opacity:"1" });
+          $(".textcontrol").css({ background: "white" });
+          $(this).parent("button").parent("div").parent("div").parent("div").css({ background: "#1DA1F2" });
+        });
+      
+      }
+      
     </script>
   </body>
 </html>
