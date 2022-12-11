@@ -256,7 +256,7 @@ var finishtour;
 plussour();
 function plussour() {
   plus[0].onclick = function () {
-    timetotal = timetotal + 1;
+    timetotal = timetotal + 10;
     if (timetotal / 60 < 10) {
       hour.textContent = "0" + Math.floor(timetotal / 60);
       if (timetotal / 60 < 0) {
@@ -468,7 +468,7 @@ function plussour() {
     timebutton[1].style.transform = "rotate(0deg)";
     timebutton[2].style.transform = "rotate(0deg)";
     timebutton[3].style.transform = "rotate(0deg)";
-    breakingtimevalue = 1;
+    breakingtimevalue = 10;
   };
   timebutton[1].onclick = function () {
     timebutton[0].style.transform = "rotate(0deg)";
