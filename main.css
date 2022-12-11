@@ -354,6 +354,8 @@ h3 span {
 .waitingbuttondiv {
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .waitingbuttondiv button {
   border: none;
@@ -402,6 +404,7 @@ h3 span {
   border: 2px solid #800000;
   transition: 0.3s;
   outline: none;
+  
 }
 .textbar input:focus {
   border: 2px solid rgb(255, 0, 166);

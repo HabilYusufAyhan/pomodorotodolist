@@ -464,31 +464,31 @@ function plussour() {
     }
   };
   timebutton[0].onclick = function () {
-    timebutton[0].style.transform = "rotate(10deg)";
-    timebutton[1].style.transform = "rotate(0deg)";
-    timebutton[2].style.transform = "rotate(0deg)";
-    timebutton[3].style.transform = "rotate(0deg)";
+    timebutton[0].style.transform = "scale(1.1)";
+    timebutton[1].style.transform = "scale(1)";
+    timebutton[2].style.transform = "scale(1)";
+    timebutton[3].style.transform = "scale(1)";
     breakingtimevalue = 10;
   };
   timebutton[1].onclick = function () {
-    timebutton[0].style.transform = "rotate(0deg)";
-    timebutton[1].style.transform = "rotate(10deg)";
-    timebutton[2].style.transform = "rotate(0deg)";
-    timebutton[3].style.transform = "rotate(0deg)";
+    timebutton[0].style.transform = "scale(1)";
+    timebutton[1].style.transform = "scale(1.1)";
+    timebutton[2].style.transform = "scale(1)";
+    timebutton[3].style.transform = "scale(1)";
     breakingtimevalue = 15;
   };
   timebutton[2].onclick = function () {
-    timebutton[0].style.transform = "rotate(0deg)";
-    timebutton[1].style.transform = "rotate(0deg)";
-    timebutton[2].style.transform = "rotate(10deg)";
-    timebutton[3].style.transform = "rotate(0deg)";
+    timebutton[0].style.transform = "scale(1)";
+    timebutton[1].style.transform = "scale(1)";
+    timebutton[2].style.transform = "scale(1.1)";
+    timebutton[3].style.transform = "scale(1)";
     breakingtimevalue = 30;
   };
   timebutton[3].onclick = function () {
-    timebutton[0].style.transform = "rotate(0deg)";
-    timebutton[1].style.transform = "rotate(0deg)";
-    timebutton[2].style.transform = "rotate(0deg)";
-    timebutton[3].style.transform = "rotate(10deg)";
+    timebutton[0].style.transform = "scale(1)";
+    timebutton[1].style.transform = "scale(1)";
+    timebutton[2].style.transform = "scale(1)";
+    timebutton[3].style.transform = "scale(1.1)";
     breakingtimevalue = 60;
   };
 }
@@ -644,7 +644,7 @@ function kontrol() {
         }
         write = 1;
       }
-      if (finishwrite == 1) {
+      if (finishwrite == 1 && choicetour == 0) {
         choicemission.textContent = "gorev bitti";
         choicetour.textContent = "";
         finishwrite = 0;
@@ -707,7 +707,7 @@ stopbutton.onclick = function () {
   choicemin.textContent = "0" + 0;
   choicesec.textContent = "0" + 0;
   choicemission.textContent = "Durduruldu";
-  choicetour.textContent = "";
+  choicetour.textContent = "0";
 };
 function remove2(a) {
   const finishtiklanilaneleman = a.target;
