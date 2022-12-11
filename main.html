@@ -41,6 +41,7 @@
       <div class="start">
         <h2>Seçilen görev</h2>
         <p class="choicemission">Seçili Görev Yok</p>
+        <span>kalan tur sayısı:</span>
         <p class="choicetour"></p>
         <div class="cronometer">
           <li class="choicehour timer">00</li>
@@ -51,8 +52,9 @@
         </div>
         <div>
           <button class="startbutton startbut">BASLAT</button>
-          <button id="missionadd" class="startbutton">GOREV EKLE</button>
-          <button class="startbutton choicebutton">GOREV SEC</button>
+          <button id="missionadd" class="startbutton addmission">
+            GOREV EKLE
+          </button>
         </div>
       </div>
       <div class="listtitle">
@@ -135,20 +137,29 @@
         $(".missiontextinput").val("");
         $(".missionnumberinput").val("");
       });
+      $(".success").click(function () {
+        $(".newmission").css({ opacity: "0", "z-index": "-1" });
+        $(".minfiveteen").css({ transform: "rotate(0deg)" });
+        $(".missiontextinput").val("");
+        $(".missionnumberinput").val("");
+      });
 
       $(".list").mouseenter(function () {
-          don();
+        don();
       });
 
       function don() {
         $(".check").click(function () {
           //  $(this).children("h2").css({ top: "5px",opacity:"1" });
-          $(".textcontrol").css({ background: "white" });
-          $(this).parent("button").parent("div").parent("div").parent("div").css({ background: "#1DA1F2" });
+          $(".textcontrol").css({ opacity: "0.5" });
+          $(this)
+            .parent("button")
+            .parent("div")
+            .parent("div")
+            .parent("div")
+            .css({ opacity: "1" });
         });
-      
       }
-      
     </script>
   </body>
 </html>

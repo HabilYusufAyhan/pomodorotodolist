@@ -141,6 +141,7 @@ section{
     max-width: 256px;
 }
 .textcontrol{
+    opacity: 0.5;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -153,6 +154,7 @@ section{
 .toptextbutton{
     display: flex;
     justify-content: space-between;
+    
 }
 .missionbar{
     background-color: white;
@@ -198,11 +200,16 @@ section{
     background-color: transparent;
     display: flex;
     min-width: 105px;
-    justify-content: space-between;
+    
     flex-direction: row;
     margin-right: 15px
 }
-
+.startmission .controlbutton{
+    justify-content: space-between;
+}
+.finishmission .controlbutton{
+    justify-content: flex-end;
+}
 .controlbutton i{
     background-color: transparent;
 }
