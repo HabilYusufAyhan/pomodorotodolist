@@ -14,7 +14,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body>
+  <body class="body">
     <nav>
       <div class="logo">
         <h1>LOGO</h1>
@@ -31,7 +31,7 @@
     <section>
       <div class="listtitle">
         <h2>Yapılacak Gorevler</h2>
-        <p class="totaltime">Toplam Planlanan Zaman: 00.00.00</p>
+        <p class="totaltime">Toplam Planlanan Zaman: <span class="startcompletehour">00</span>.<span class="startcompletemin">00</span>.<span class="startcompletesec">00</span></p>
 
         <div class="list">
           <ul class="missionbar startmission"></ul>
@@ -41,7 +41,7 @@
       <div class="start">
         <h2>Seçilen görev</h2>
         <p class="choicemission">Seçili Görev Yok</p>
-        <span>kalan tur sayısı:</span>
+        <h2>  kalan tur sayısı:</h2>
         <p class="choicetour"></p>
         <div class="cronometer">
           <li class="choicehour timer">00</li>
@@ -52,6 +52,7 @@
         </div>
         <div>
           <button class="startbutton startbut">BASLAT</button>
+          <button class="startbutton stopbut">DURDUR</button>
           <button id="missionadd" class="startbutton addmission">
             GOREV EKLE
           </button>
@@ -59,9 +60,9 @@
       </div>
       <div class="listtitle">
         <h2>Tamamlanmis Gorevler</h2>
-        <p class="totaltime">Toplam Gecen Zaman: 00.00.00</p>
+        <p class="totaltime">Toplam Tamamlanan Zaman: <span class="finishcompletehour">00</span>.<span class="finishcompletemin">00</span>.<span class="finishcompletesec">00</span></p>
 
-        <div class="list">
+        <div class="list finishlist">
           <ul class="missionbar finishmission"></ul>
         </div>
       </div>
@@ -126,7 +127,10 @@
       <h3 class="footer">Made By <span> Habil Yusuf Ayhan</span></h3>
     </footer>
     <script src="main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
     <script>
       $("#missionadd").click(function () {
         $(".newmission").css({ opacity: "1", "z-index": "1" });
