@@ -334,6 +334,7 @@ function plussour() {
       }
     }
   };
+  
   plus[3].onclick = function () {
     timetotal = timetotal + 60;
     if (timetotal / 60 < 10) {
