@@ -251,6 +251,7 @@ var finishhour;
 var finishmin;
 var finishsec;
 var finishtour;
+
 ///////////////////////
 // mission add edit
 plussour();
