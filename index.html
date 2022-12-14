@@ -31,7 +31,7 @@
     <section>
       <div class="listtitle">
         <h2>Yapılacak Gorevler</h2>
-        <p class="totaltime">Toplam Planlanan Zaman: <span class="startcompletehour">00</span>.<span class="startcompletemin">00</span>.<span class="startcompletesec">00</span></p>
+        <p class="totaltime">Toplam Planlanan Zaman: <span class="plantotal">00.00.00</span></p>
 
         <div class="list">
           <ul class="missionbar startmission"></ul>
@@ -44,11 +44,7 @@
         <h2>  kalan tur sayısı:</h2>
         <p class="choicetour"></p>
         <div class="cronometer">
-          <li class="choicehour timer">00</li>
-          <li>.</li>
-          <li class="choicemin timer">00</li>
-          <li>.</li>
-          <li class="choicesec timer">00</li>
+         <p class="timer">00.00.00</p>
         </div>
         <div>
           <button class="startbutton startbut">BASLAT</button>
@@ -60,71 +56,64 @@
       </div>
       <div class="listtitle">
         <h2>Tamamlanmis Gorevler</h2>
-        <p class="totaltime">Toplam Tamamlanan Zaman: <span class="finishcompletehour">00</span>.<span class="finishcompletemin">00</span>.<span class="finishcompletesec">00</span></p>
+        <p class="totaltime">Toplam Tamamlanan Zaman: <span class="completetime">00.00.00</span></p>
 
         <div class="list finishlist">
           <ul class="missionbar finishmission"></ul>
         </div>
       </div>
     </section>
-    <div onclick="change()" class="newmission">
+    <div class="newmission">
       <div class="missiontimebarparentparent">
         <div class="missiontimebarparent">
           <div class="timecrossdiv">
             <i id="missionclose" class="timecross fa-solid fa-x"></i>
           </div>
+          <div class="yatay">
+          <div>
           <div class="missiontimebar">
             <div class="missiontimetext">
               <h3 class="sure">Ne Kadar Çalışacaksınız?</h3>
-              <p>
-                <span id="hour">00</span>.<span id="min">00</span>.<span
-                  >00</span
-                >
-              </p>
+              
             </div>
-            <div class="timebuttondiv plus">
-              <button class="minfiveteen">+10 Min</button>
-              <button class="minfiveteen">+15 Min</button>
-              <button class="minfiveteen">+30 Min</button>
-              <button class="minfiveteen">+60 Min</button>
-            </div>
-            <div class="timebuttondiv sour">
-              <button class="minfiveteen">-10 Min</button>
-              <button class="minfiveteen">-15 Min</button>
-              <button class="minfiveteen">-30 Min</button>
-              <button class="minfiveteen">-60 Min</button>
-            </div>
+           <div class="timechoice">
+            <input
+              class="missiontimeinput"
+              type="number"
+            />
+            <span style="color: brown;"> dk</span>
+           </div>
           </div>
           <div class="missiontimebar">
             <div class="missiontimetext">
               <h3 class="sure">Ne Kadar Mola Alacaksınız?</h3>
             </div>
             <div class="waitingbuttondiv">
-              <button class="minfiveteen break">10 Min</button>
-              <button class="minfiveteen break">15 Min</button>
-              <button class="minfiveteen break">30 Min</button>
-              <button class="minfiveteen break">60 Min</button>
+             <input class="waitingmin" type="number" name="" id="">
+             <span style="color: brown;"> dk</span>
             </div>
           </div>
+        </div>
+        <div>
           <div class="missiontouradd textbar">
             <h3>Tur Sayısını Yazınız:</h3>
             <input
-              onkeypress="change()"
               class="missionnumberinput"
               type="number"
             />
           </div>
           <div class="missiontextadd textbar">
             <h3>Gorevinizi Yaziniz:</h3>
-            <input onkeypress="change()" class="missiontextinput" type="text" />
+            <input class="missiontextinput" type="text" />
           </div>
-
+        </div>
+      </div>
           <button class="success">Gorev Ekle</button>
         </div>
       </div>
     </div>
     <footer>
-      <h3 class="footer">Made By <span> Habil Yusuf Ayhan</span></h3>
+      <h3 class="footer">Made By <span> <a target="_blank" class="footerlink" href="https://tr.linkedin.com/in/habil-yusuf-ayhan-92ba39227"> Habil Yusuf Ayhan </a></span></h3>
     </footer>
     <script src="main.js"></script>
     <script
@@ -137,13 +126,15 @@
       });
       $("#missionclose").click(function () {
         $(".newmission").css({ opacity: "0", "z-index": "-1" });
-        $(".minfiveteen").css({ transform: "rotate(0deg)" });
+        $(".waitingmin").css({ transform: "rotate(0deg)" });
         $(".missiontextinput").val("");
         $(".missionnumberinput").val("");
+        $(".missiontimeinput").val("");
+        $(".waitingmin").val("");
       });
       $(".success").click(function () {
         $(".newmission").css({ opacity: "0", "z-index": "-1" });
-        $(".minfiveteen").css({ transform: "rotate(0deg)" });
+        $(".waitingmin").css({ transform: "rotate(0deg)" });
         $(".missiontextinput").val("");
         $(".missionnumberinput").val("");
       });
