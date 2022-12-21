@@ -134,7 +134,7 @@ function startaddorremove(e) {
         .firstElementChild.firstElementChild.nextElementSibling
         .firstElementChild.nextElementSibling.textContent;
     console.log(finishtour);
-    countdowntour.textContent = finishtour + " tur";
+    countdowntour.textContent = finishtour;
     finishwaiting =
       successbutton.parentElement.parentElement.parentElement.nextElementSibling
         .firstElementChild.nextElementSibling.firstElementChild
@@ -203,6 +203,7 @@ console.log(customizetime.value);
       .firstElementChild.nextElementSibling.textContent;
       tourcountdown = countdowntour.textContent;
       totaltotalmin = customizetime.value;
+      finishtour = countdowntour.textContent;
     }
     }
   }
@@ -361,7 +362,7 @@ else{
         consttotal % 60
       }</span>.<span>00</span></span><span class="tour"><span>/</span><span>${finishtour} </p>
         <p>Mola Süresi: <span class="breakingtime">${
-          waitingmin.value
+          finishwaiting
         } dk</span></p>
         <span style="display: none;">${totaltotalmin}</span>
       </div>
