@@ -168,29 +168,42 @@ function startaddorremove(e) {
     customizewaiting.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
     .firstElementChild.nextElementSibling.firstElementChild
     .firstElementChild.textContent;
+
      missioncustomize.style.opacity = '1';
      missioncustomize.style.zIndex = '1';
     cusbutton.onclick = function(){
+      
       missioncustomize.style.opacity = '0';
       missioncustomize.style.zIndex = '-1';
       successbutton.parentElement.parentElement.previousElementSibling
     .textContent=customizetext.value;
 
-
     successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .lastElementChild.textContent=customizetime.value;
-    timeconverterhour = Math.floor(customizetime.value/60);
-    timeconvertermin= Math.floor(customizetime.value%60);
-   successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.textContent = timeconverterhour + '.' + timeconvertermin + '.' + '00';
-
+    .firstElementChild.firstElementChild.textContent=Math.floor(customizetime.value/60)+ '.' + customizetime.value%60 + '.' + '00';
+console.log(customizetime.value);
     successbutton.parentElement.parentElement.parentElement.nextElementSibling
     .firstElementChild.firstElementChild.nextElementSibling
-    .firstElementChild.nextElementSibling.textContent=customizetour.value;
-
+    .firstElementChild.nextElementSibling.textContent = customizetour.value;
 
     successbutton.parentElement.parentElement.parentElement.nextElementSibling
     .firstElementChild.nextElementSibling.firstElementChild
-    .firstElementChild.textContent=customizewaiting.value
+    .firstElementChild.textContent = customizewaiting.value;
+    successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .lastElementChild.textContent = customizetime.value;
+ 
+    if (delete2.textContent == successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent) {
+     
+      console.log('girdi');
+      countdowntext.textContent = successbutton.parentElement.parentElement.previousElementSibling
+      .textContent;
+      countdowntimer.textContent = successbutton.parentElement.parentElement.parentElement.nextElementSibling
+      .firstElementChild.firstElementChild.textContent;
+      countdowntour.textContent=successbutton.parentElement.parentElement.parentElement.nextElementSibling
+      .firstElementChild.firstElementChild.nextElementSibling
+      .firstElementChild.nextElementSibling.textContent;
+      tourcountdown = countdowntour.textContent;
+      totaltotalmin = customizetime.value;
+    }
     }
   }
 }
@@ -222,6 +235,7 @@ startbutton.onclick = function () {
   sayac = 0;
 };
 stopbutton.onclick = function () {
+  tourcountdown = countdowntour.textContent
   toursayac = 0;
   sayac = 0;
   planlist.style.opacity = "1";
@@ -295,7 +309,7 @@ else{
         addmission.style.background = "#3b5998";
       }
 
-      countdowntour.textContent = tourcountdown + " tur";
+      countdowntour.textContent = tourcountdown;
       toursayac = 1;
     }
   } else if (
