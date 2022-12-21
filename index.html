@@ -39,6 +39,7 @@
       </div>
 
       <div class="start">
+        <span class="delete" style="display: none;"></span>
         <h2>Seçilen görev</h2>
         <p class="choicemission">Seçili Görev Yok</p>
         <h2>  kalan tur sayısı:</h2>
@@ -77,7 +78,7 @@
               
             </div>
            <div class="timechoice">
-            <input
+            <input autocomplete="on"
               class="missiontimeinput"
               type="number"
             />
@@ -89,7 +90,7 @@
               <h3 class="sure">Ne Kadar Mola Alacaksınız?</h3>
             </div>
             <div class="waitingbuttondiv">
-             <input class="waitingmin" type="number" name="" id="">
+             <input autocomplete="on" class="waitingmin" type="number" name="" id="">
              <span style="color: brown;"> dk</span>
             </div>
           </div>
@@ -97,20 +98,32 @@
         <div>
           <div class="missiontouradd textbar">
             <h3>Tur Sayısını Yazınız:</h3>
-            <input
+            <input autocomplete="on"
               class="missionnumberinput"
               type="number"
             />
           </div>
           <div class="missiontextadd textbar">
             <h3>Gorevinizi Yaziniz:</h3>
-            <input class="missiontextinput" type="text" />
+            <input autocomplete="on" class="missiontextinput" type="text" />
           </div>
         </div>
       </div>
           <button class="success">Gorev Ekle</button>
         </div>
       </div>
+    </div>
+    <div class="missioncust">
+      <div class="customize">
+        <div class="customizechild">
+          <i id="missionclose" class="customizecross fa-solid fa-x"></i>
+      <div><p>Görev İsmi: </p><input class="customizetext" type="text"></div>
+      <div><p>Görev Süresi: </p><input class="customizetime" type="number"><span class="customizespan" style="color: brown;">dk</span></div>
+      <div><p>Görev Tur Sayisi: </p><input class="customizetour" type="number"></div>
+      <div><p>Görev Mola Süresi: </p><input class="customizewaiting" type="number"><span class="customizespan" style="color: brown;">dk</span></div>
+      <button class="cusbutton">Düzenle</button>
+    </div>
+    </div>
     </div>
     <footer>
       <h3 class="footer">Made By <span> <a target="_blank" class="footerlink" href="https://tr.linkedin.com/in/habil-yusuf-ayhan-92ba39227"> Habil Yusuf Ayhan </a></span></h3>
@@ -137,6 +150,8 @@
         $(".waitingmin").css({ transform: "rotate(0deg)" });
         $(".missiontextinput").val("");
         $(".missionnumberinput").val("");
+        $(".missiontimeinput").val("");
+        $(".waitingmin").val("");
       });
 
       $(".list").mouseenter(function () {

@@ -19,8 +19,18 @@ const countdowntext = document.querySelector(".choicemission");
 const startbutton = document.querySelector(".startbut");
 const stopbutton = document.querySelector(".stopbut");
 const addmission = document.querySelector(".addmission");
+const delete2 = document.querySelector('.delete');
+//düzenleme
+const customizecross = document.querySelector('.customizecross');
+const missioncustomize = document.querySelector('.missioncust');
+const customizetime = document.querySelector('.customizetime');
+const customizetext = document.querySelector('.customizetext');
+const customizetour = document.querySelector('.customizetour');
+const customizewaiting = document.querySelector('.customizewaiting');
+const cusbutton = document.querySelector('.cusbutton');
 
 missionaddsuccess.onclick = function () {
+  deletethismission++;
   var timeconverterhour = 0 + "0";
   var timeconvertermin = 0 + "0";
   var timeconvertersec = 0 + "0";
@@ -65,7 +75,9 @@ missionaddsuccess.onclick = function () {
                 <div class="missiontime">
     <p>Süre: <span class="time"> <span>${timeconverterhour}</span>.<span>${timeconvertermin}</span>.<span>${timeconvertersec}</span></span><span class="tour"><span>/</span><span>${missiontourinput.value}</span><span> tur</span></span></p>
     <p>Mola Süresi: <span class="breakingtime"> <span>${waitingmin.value}</span><span>dk</span> </span></p>
-    <span style="display: none;">${totaltimemain}</span>
+    <span style="display: none;">${deletethismission}</span>
+    <span style="display: none;">${missiontimeinput.value}</span>
+
   </div>
  </div>
  
@@ -81,6 +93,8 @@ var finishwrite;
 var finishtour;
 var finishwaiting;
 var waitingcountdown;
+var deletethismission = 0;
+var crossbutton;
 startmission.addEventListener("click", startaddorremove);
 finishmission.addEventListener("click", finishaddorremove);
 function finishaddorremove(e) {
@@ -93,6 +107,19 @@ function finishaddorremove(e) {
 function startaddorremove(e) {
   successbutton = e.target;
   if (successbutton.classList.contains("check")) {
+    startbutton.disabled = false;
+    startbutton.style.background = '#1da1f2'
+    startbutton.style.cursor = 'pointer';
+    startbutton.onmouseenter = function(){
+      startbutton.style.background = 'white';
+      startbutton.style.color = '#1da1f2'
+    }
+    startbutton.onmouseleave = function(){
+      startbutton.style.background = '#1da1f2';
+      startbutton.style.color = 'white'
+    }
+    delete2.textContent = successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent;
+    console.log(delete2.textContent);
     finishwrite =
       successbutton.parentElement.parentElement.previousElementSibling
         .textContent;
@@ -119,14 +146,68 @@ function startaddorremove(e) {
         .lastElementChild.textContent;
     tourcountdown = finishtour;
   } else if (successbutton.classList.contains("cross2")) {
+    if (delete2.textContent == successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent) {
+       startbutton.disabled = true;
+       countdowntext.textContent = '';
+          countdowntimer.textContent = '00.00.00';
+          countdowntour.textContent = '';
+          startbutton.style.background = '#aad7f2'
+          startbutton.style.cursor = 'auto';
+          startbutton.style.color = 'white';
+    }
     successbutton.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
   }
+  else if(successbutton.classList.contains('settingsicon')){
+    customizetext.value = successbutton.parentElement.parentElement.previousElementSibling
+    .textContent;
+    customizetime.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .lastElementChild.textContent;
+    customizetour.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .firstElementChild.firstElementChild.nextElementSibling
+    .firstElementChild.nextElementSibling.textContent;
+    customizewaiting.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .firstElementChild.nextElementSibling.firstElementChild
+    .firstElementChild.textContent;
+     missioncustomize.style.opacity = '1';
+     missioncustomize.style.zIndex = '1';
+    cusbutton.onclick = function(){
+      missioncustomize.style.opacity = '0';
+      missioncustomize.style.zIndex = '-1';
+      successbutton.parentElement.parentElement.previousElementSibling
+    .textContent=customizetext.value;
+
+
+    successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .lastElementChild.textContent=customizetime.value;
+    timeconverterhour = Math.floor(customizetime.value/60);
+    timeconvertermin= Math.floor(customizetime.value%60);
+   successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.textContent = timeconverterhour + '.' + timeconvertermin + '.' + '00';
+
+    successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .firstElementChild.firstElementChild.nextElementSibling
+    .firstElementChild.nextElementSibling.textContent=customizetour.value;
+
+
+    successbutton.parentElement.parentElement.parentElement.nextElementSibling
+    .firstElementChild.nextElementSibling.firstElementChild
+    .firstElementChild.textContent=customizewaiting.value
+    }
+  }
 }
+// button disabled enabled
+startbutton.disabled = true;
+startbutton.style.background = '#aad7f2'
+startbutton.style.cursor = 'auto';
+startbutton.style.color = 'white';
+
 // countdown
 var stopstart;
-
+setInterval(kontrol, 100);
 var consttotal;
 startbutton.onclick = function () {
+  
+  toursayac = 0;
+  sayac = 0;
   planlist.style.opacity = "0";
   planlist.style.zIndex = "-1";
   finishlist.style.opacity = "0";
@@ -135,12 +216,14 @@ startbutton.onclick = function () {
   addmission.style.display = "none";
   stopbutton.style.display = "inline-block";
   consttotal = totaltotalmin;
-  setInterval(kontrol, 100);
+
   stopstart = setInterval(countdown, 1000);
   second = 0;
   sayac = 0;
 };
 stopbutton.onclick = function () {
+  toursayac = 0;
+  sayac = 0;
   planlist.style.opacity = "1";
   planlist.style.zIndex = "1";
   finishlist.style.opacity = "1";
@@ -158,6 +241,10 @@ stopbutton.onclick = function () {
   stopbutton.style.display = "none";
   clearInterval(stopstart);
 };
+customizecross.onclick = function(){
+  missioncustomize.style.opacity = '0';
+  missioncustomize.style.zIndex = '-1';
+}
 var second = 59;
 function countdown() {
   if (second == 0 && totaltotalmin != 0) {
@@ -176,23 +263,41 @@ function countdown() {
 }
 var sayac = 0;
 var toursayac = 0;
+missionaddsuccess.disabled = true;
+
 function kontrol() {
+if (missiontextinput.value != '' && missiontimeinput.value != '' && missiontourinput.value != '' && waitingmin.value != '') {
+  missionaddsuccess.disabled = false;
+
+}
+else{
+  missionaddsuccess.disabled = true;
+}
+
+
+
+
   if (
     tourcountdown != 0 &&
     totaltotalmin == 0 &&
     second == 0 &&
     toursayac == 0
   ) {
-    tourcountdown--;
+    console.log("tur geçti");
+
     if (tourcountdown != 0) {
-      totaltotalmin = waitingcountdown;
-      body.style.background = "#1da1f2";
-      startbutton.style.background = "#3b5998";
-      stopbutton.style.background = "#3b5998";
-      addmission.style.background = "#3b5998";
+      tourcountdown--;
+      if (tourcountdown != 0) {
+        totaltotalmin = waitingcountdown;
+        body.style.background = "#1da1f2";
+        startbutton.style.background = "#3b5998";
+        stopbutton.style.background = "#3b5998";
+        addmission.style.background = "#3b5998";
+      }
+
+      countdowntour.textContent = tourcountdown + " tur";
+      toursayac = 1;
     }
-    countdowntour.textContent = tourcountdown + " tur";
-    toursayac = 1;
   } else if (
     tourcountdown != 0 &&
     totaltotalmin == 0 &&
@@ -208,18 +313,17 @@ function kontrol() {
     totaltotalmin = consttotal;
     toursayac = 0;
   }
-  if (totaltotalmin == 0 && second == -1 && tourcountdown == 0) {
+  if (totaltotalmin == 0 && second == 0 && tourcountdown == 0) {
     clearInterval(stopstart);
     successbutton.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
     startbutton.style.display = "inline-block";
-      stopbutton.style.display = "none";
-      addmission.style.display = "inline-block";
-      planlist.style.opacity = "1";
-      planlist.style.zIndex = "1";
-      finishlist.style.opacity = "1";
-      finishlist.style.zIndex = "1";
+    stopbutton.style.display = "none";
+    addmission.style.display = "inline-block";
+    planlist.style.opacity = "1";
+    planlist.style.zIndex = "1";
+    finishlist.style.opacity = "1";
+    finishlist.style.zIndex = "1";
     if (sayac == 0) {
-      
       const addmissionli = document.createElement("li");
       addmissionli.classList.add("mission");
       addmissionli.innerHTML = `

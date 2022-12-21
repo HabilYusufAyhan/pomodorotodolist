@@ -271,6 +271,63 @@ footer {
   opacity: 0;
   transition: 0.3s;
 }
+.missioncust{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(51, 51, 51, 0.8);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.3s;
+}
+.customize{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.customizechild{
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cusbutton{
+  margin-top: 10px;
+  color: white;
+  background-color: blue;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+.customizechild p{
+  color: blue;
+  margin: 10px;
+}
+.customizespan{
+  margin-left: 10px;
+}
+.customizecross{
+  color: red;
+  
+  cursor: pointer;
+}
+.customizechild input{
+  text-align: center;
+  color: rgb(255, 0, 166);
+  border-radius: 10px;
+  border: 2px solid #800000;
+  transition: 0.3s;
+  outline: none;
+}
 .missiontimebarparentparent {
   display: flex;
   height: 100%;
@@ -324,7 +381,11 @@ footer {
   outline: none;
   width: 80px;
 }
+
 .timechoice input::-webkit-inner-spin-button {
+  display: none;
+}
+.customizechild input::-webkit-inner-spin-button{
   display: none;
 }
 .textbar h3 {
