@@ -140,6 +140,7 @@ function startaddorremove(e) {
         .firstElementChild.nextElementSibling.firstElementChild
         .firstElementChild.textContent;
     waitingcountdown = finishwaiting;
+    console.log(finishwaiting);
     console.log(waitingcountdown);
     totaltotalmin =
       successbutton.parentElement.parentElement.parentElement.nextElementSibling
@@ -204,6 +205,9 @@ console.log(customizetime.value);
       tourcountdown = countdowntour.textContent;
       totaltotalmin = customizetime.value;
       finishtour = countdowntour.textContent;
+      finishwaiting = customizewaiting.value;
+      waitingcountdown = finishwaiting;
+      console.log(finishwaiting);
     }
     }
   }
