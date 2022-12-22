@@ -19,15 +19,15 @@ const countdowntext = document.querySelector(".choicemission");
 const startbutton = document.querySelector(".startbut");
 const stopbutton = document.querySelector(".stopbut");
 const addmission = document.querySelector(".addmission");
-const delete2 = document.querySelector('.delete');
+const delete2 = document.querySelector(".delete");
 //düzenleme
-const customizecross = document.querySelector('.customizecross');
-const missioncustomize = document.querySelector('.missioncust');
-const customizetime = document.querySelector('.customizetime');
-const customizetext = document.querySelector('.customizetext');
-const customizetour = document.querySelector('.customizetour');
-const customizewaiting = document.querySelector('.customizewaiting');
-const cusbutton = document.querySelector('.cusbutton');
+const customizecross = document.querySelector(".customizecross");
+const missioncustomize = document.querySelector(".missioncust");
+const customizetime = document.querySelector(".customizetime");
+const customizetext = document.querySelector(".customizetext");
+const customizetour = document.querySelector(".customizetour");
+const customizewaiting = document.querySelector(".customizewaiting");
+const cusbutton = document.querySelector(".cusbutton");
 
 missionaddsuccess.onclick = function () {
   deletethismission++;
@@ -95,7 +95,7 @@ var finishwaiting;
 var waitingcountdown;
 var deletethismission = 0;
 var crossbutton;
-var deletingendmission
+var deletingendmission;
 startmission.addEventListener("click", startaddorremove);
 finishmission.addEventListener("click", finishaddorremove);
 function finishaddorremove(e) {
@@ -108,19 +108,22 @@ function finishaddorremove(e) {
 function startaddorremove(e) {
   successbutton = e.target;
   if (successbutton.classList.contains("check")) {
-    deletingendmission =  successbutton.parentElement.parentElement.parentElement.parentElement.parentElement;
+    deletingendmission =
+      successbutton.parentElement.parentElement.parentElement.parentElement
+        .parentElement;
     startbutton.disabled = false;
-    startbutton.style.background = '#1da1f2'
-    startbutton.style.cursor = 'pointer';
-    startbutton.onmouseenter = function(){
-      startbutton.style.background = 'white';
-      startbutton.style.color = '#1da1f2'
-    }
-    startbutton.onmouseleave = function(){
-      startbutton.style.background = '#1da1f2';
-      startbutton.style.color = 'white'
-    }
-    delete2.textContent = successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent;
+    startbutton.style.background = "#1da1f2";
+    startbutton.style.cursor = "pointer";
+    startbutton.onmouseenter = function () {
+      startbutton.style.background = "white";
+      startbutton.style.color = "#1da1f2";
+    };
+    startbutton.onmouseleave = function () {
+      startbutton.style.background = "#1da1f2";
+      startbutton.style.color = "white";
+    };
+    delete2.textContent =
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent;
     console.log(delete2.textContent);
     finishwrite =
       successbutton.parentElement.parentElement.previousElementSibling
@@ -150,88 +153,86 @@ function startaddorremove(e) {
     tourcountdown = finishtour;
   } else if (successbutton.classList.contains("cross2")) {
     successbutton.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
-    if (delete2.textContent == successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent) {
-       startbutton.disabled = true;
-       countdowntext.textContent = '';
-          countdowntimer.textContent = '00.00.00';
-          countdowntour.textContent = '';
-          startbutton.style.background = '#aad7f2'
-          startbutton.style.cursor = 'auto';
-          startbutton.style.color = 'white';
+    if (
+      delete2.textContent ==
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling
+        .lastElementChild.previousElementSibling.textContent
+    ) {
+      startbutton.disabled = true;
+      countdowntext.textContent = "";
+      countdowntimer.textContent = "00.00.00";
+      countdowntour.textContent = "";
+      startbutton.style.background = "#aad7f2";
+      startbutton.style.cursor = "auto";
+      startbutton.style.color = "white";
     }
- 
-  }
-  else if(successbutton.classList.contains('settingsicon')){
-    
+  } else if (successbutton.classList.contains("settingsicon")) {
+    customizetext.value =
+      successbutton.parentElement.parentElement.previousElementSibling.textContent;
+    customizetime.value =
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.textContent;
+    customizetour.value =
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent;
+    customizewaiting.value =
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.textContent;
 
-    customizetext.value = successbutton.parentElement.parentElement.previousElementSibling
-    .textContent;
-    customizetime.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .lastElementChild.textContent;
-    customizetour.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .firstElementChild.firstElementChild.nextElementSibling
-    .firstElementChild.nextElementSibling.textContent;
-    customizewaiting.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .firstElementChild.nextElementSibling.firstElementChild
-    .firstElementChild.textContent;
-    
+    missioncustomize.style.opacity = "1";
+    missioncustomize.style.zIndex = "1";
+    cusbutton.onclick = function () {
+      missioncustomize.style.opacity = "0";
+      missioncustomize.style.zIndex = "-1";
+      successbutton.parentElement.parentElement.previousElementSibling.textContent =
+        customizetext.value;
 
-     missioncustomize.style.opacity = '1';
-     missioncustomize.style.zIndex = '1';
-    cusbutton.onclick = function(){
-      
-      missioncustomize.style.opacity = '0';
-      missioncustomize.style.zIndex = '-1';
-      successbutton.parentElement.parentElement.previousElementSibling
-    .textContent=customizetext.value;
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.textContent =
+        Math.floor(customizetime.value / 60) +
+        "." +
+        (customizetime.value % 60) +
+        "." +
+        "00";
+      console.log(customizetime.value);
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent =
+        customizetour.value;
 
-    successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .firstElementChild.firstElementChild.textContent=Math.floor(customizetime.value/60)+ '.' + customizetime.value%60 + '.' + '00';
-console.log(customizetime.value);
-    successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .firstElementChild.firstElementChild.nextElementSibling
-    .firstElementChild.nextElementSibling.textContent = customizetour.value;
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.textContent =
+        customizewaiting.value;
+      successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.textContent =
+        customizetime.value;
 
-    successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .firstElementChild.nextElementSibling.firstElementChild
-    .firstElementChild.textContent = customizewaiting.value;
-    successbutton.parentElement.parentElement.parentElement.nextElementSibling
-    .lastElementChild.textContent = customizetime.value;
- 
-    if (delete2.textContent == successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent) {
-     
-      console.log('girdi');
-      countdowntext.textContent = successbutton.parentElement.parentElement.previousElementSibling
-      .textContent;
-      countdowntimer.textContent = successbutton.parentElement.parentElement.parentElement.nextElementSibling
-      .firstElementChild.firstElementChild.textContent;
-      countdowntour.textContent=successbutton.parentElement.parentElement.parentElement.nextElementSibling
-      .firstElementChild.firstElementChild.nextElementSibling
-      .firstElementChild.nextElementSibling.textContent;
-      tourcountdown = countdowntour.textContent;
-      totaltotalmin = customizetime.value;
-      finishtour = countdowntour.textContent;
-      finishwaiting = customizewaiting.value;
-      waitingcountdown = finishwaiting;
-      console.log(finishwaiting);
-    }
-    }
-   
-   
+      if (
+        delete2.textContent ==
+        successbutton.parentElement.parentElement.parentElement
+          .nextElementSibling.lastElementChild.previousElementSibling
+          .textContent
+      ) {
+        console.log("girdi");
+        countdowntext.textContent =
+          successbutton.parentElement.parentElement.previousElementSibling.textContent;
+        countdowntimer.textContent =
+          successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.textContent;
+        countdowntour.textContent =
+          successbutton.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent;
+        tourcountdown = countdowntour.textContent;
+        totaltotalmin = customizetime.value;
+        finishtour = countdowntour.textContent;
+        finishwaiting = customizewaiting.value;
+        waitingcountdown = finishwaiting;
+        console.log(finishwaiting);
+      }
+    };
   }
 }
 // button disabled enabled
 startbutton.disabled = true;
-startbutton.style.background = '#aad7f2'
-startbutton.style.cursor = 'auto';
-startbutton.style.color = 'white';
+startbutton.style.background = "#aad7f2";
+startbutton.style.cursor = "auto";
+startbutton.style.color = "white";
 
 // countdown
 var stopstart;
 setInterval(kontrol, 100);
 var consttotal;
 startbutton.onclick = function () {
-  
   toursayac = 0;
   sayac = 0;
   planlist.style.opacity = "0";
@@ -248,7 +249,7 @@ startbutton.onclick = function () {
   sayac = 0;
 };
 stopbutton.onclick = function () {
-  tourcountdown = countdowntour.textContent
+  tourcountdown = countdowntour.textContent;
   toursayac = 0;
   sayac = 0;
   planlist.style.opacity = "1";
@@ -268,10 +269,10 @@ stopbutton.onclick = function () {
   stopbutton.style.display = "none";
   clearInterval(stopstart);
 };
-customizecross.onclick = function(){
-  missioncustomize.style.opacity = '0';
-  missioncustomize.style.zIndex = '-1';
-}
+customizecross.onclick = function () {
+  missioncustomize.style.opacity = "0";
+  missioncustomize.style.zIndex = "-1";
+};
 var second = 59;
 function countdown() {
   if (second == 0 && totaltotalmin != 0) {
@@ -293,16 +294,16 @@ var toursayac = 0;
 missionaddsuccess.disabled = true;
 
 function kontrol() {
-if (missiontextinput.value != '' && missiontimeinput.value != '' && missiontourinput.value != '' && waitingmin.value != '') {
-  missionaddsuccess.disabled = false;
-
-}
-else{
-  missionaddsuccess.disabled = true;
-}
-
-
-
+  if (
+    missiontextinput.value != "" &&
+    missiontimeinput.value != "" &&
+    missiontourinput.value != "" &&
+    waitingmin.value != ""
+  ) {
+    missionaddsuccess.disabled = false;
+  } else {
+    missionaddsuccess.disabled = true;
+  }
 
   if (
     tourcountdown != 0 &&
@@ -342,7 +343,7 @@ else{
   }
   if (totaltotalmin == 0 && second == 0 && tourcountdown == 0) {
     clearInterval(stopstart);
-    
+
     startbutton.style.display = "inline-block";
     stopbutton.style.display = "none";
     addmission.style.display = "inline-block";
@@ -351,7 +352,11 @@ else{
     finishlist.style.opacity = "1";
     finishlist.style.zIndex = "1";
     if (sayac == 0) {
-     deletingendmission.remove();
+      deletingendmission.remove();
+      startbutton.disabled = true;
+      startbutton.style.background = "#aad7f2";
+      startbutton.style.cursor = "auto";
+      startbutton.style.color = "white";
       const addmissionli = document.createElement("li");
       addmissionli.classList.add("mission");
       addmissionli.innerHTML = `
@@ -373,10 +378,10 @@ else{
           consttotal / 60
         )}</span>.<span>${
         consttotal % 60
-      }</span>.<span>00</span></span><span class="tour"><span>/</span><span>${finishtour + 'tur'}</span> </p>
-        <p>Mola Süresi: <span class="breakingtime">${
-          finishwaiting
-        } dk</span></p>
+      }</span>.<span>00</span></span><span class="tour"><span>/</span><span>${
+        finishtour + "tur"
+      }</span> </p>
+        <p>Mola Süresi: <span class="breakingtime">${finishwaiting} dk</span></p>
         <span style="display: none;">${totaltotalmin}</span>
       </div>
      </div>
