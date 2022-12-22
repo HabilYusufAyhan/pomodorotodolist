@@ -95,6 +95,7 @@ var finishwaiting;
 var waitingcountdown;
 var deletethismission = 0;
 var crossbutton;
+var deletingendmission
 startmission.addEventListener("click", startaddorremove);
 finishmission.addEventListener("click", finishaddorremove);
 function finishaddorremove(e) {
@@ -107,6 +108,7 @@ function finishaddorremove(e) {
 function startaddorremove(e) {
   successbutton = e.target;
   if (successbutton.classList.contains("check")) {
+    deletingendmission =  successbutton.parentElement.parentElement.parentElement.parentElement.parentElement;
     startbutton.disabled = false;
     startbutton.style.background = '#1da1f2'
     startbutton.style.cursor = 'pointer';
@@ -147,6 +149,7 @@ function startaddorremove(e) {
         .lastElementChild.textContent;
     tourcountdown = finishtour;
   } else if (successbutton.classList.contains("cross2")) {
+    successbutton.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
     if (delete2.textContent == successbutton.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.previousElementSibling.textContent) {
        startbutton.disabled = true;
        countdowntext.textContent = '';
@@ -156,9 +159,11 @@ function startaddorremove(e) {
           startbutton.style.cursor = 'auto';
           startbutton.style.color = 'white';
     }
-    successbutton.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+ 
   }
   else if(successbutton.classList.contains('settingsicon')){
+    
+
     customizetext.value = successbutton.parentElement.parentElement.previousElementSibling
     .textContent;
     customizetime.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
@@ -169,6 +174,7 @@ function startaddorremove(e) {
     customizewaiting.value = successbutton.parentElement.parentElement.parentElement.nextElementSibling
     .firstElementChild.nextElementSibling.firstElementChild
     .firstElementChild.textContent;
+    
 
      missioncustomize.style.opacity = '1';
      missioncustomize.style.zIndex = '1';
@@ -210,6 +216,8 @@ console.log(customizetime.value);
       console.log(finishwaiting);
     }
     }
+   
+   
   }
 }
 // button disabled enabled
@@ -334,7 +342,7 @@ else{
   }
   if (totaltotalmin == 0 && second == 0 && tourcountdown == 0) {
     clearInterval(stopstart);
-    successbutton.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+    
     startbutton.style.display = "inline-block";
     stopbutton.style.display = "none";
     addmission.style.display = "inline-block";
@@ -343,6 +351,7 @@ else{
     finishlist.style.opacity = "1";
     finishlist.style.zIndex = "1";
     if (sayac == 0) {
+     deletingendmission.remove();
       const addmissionli = document.createElement("li");
       addmissionli.classList.add("mission");
       addmissionli.innerHTML = `
@@ -364,7 +373,7 @@ else{
           consttotal / 60
         )}</span>.<span>${
         consttotal % 60
-      }</span>.<span>00</span></span><span class="tour"><span>/</span><span>${finishtour} </p>
+      }</span>.<span>00</span></span><span class="tour"><span>/</span><span>${finishtour + 'tur'}</span> </p>
         <p>Mola Süresi: <span class="breakingtime">${
           finishwaiting
         } dk</span></p>
