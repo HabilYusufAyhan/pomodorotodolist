@@ -136,6 +136,9 @@
     <script>
       $("#missionadd").click(function () {
         $(".newmission").css({ opacity: "1", "z-index": "1" });
+        $(".missionnumberinput").val("1");
+        $(".missiontimeinput").val("40");
+        $(".waitingmin").val("10");
       });
       $("#missionclose").click(function () {
         $(".newmission").css({ opacity: "0", "z-index": "-1" });
